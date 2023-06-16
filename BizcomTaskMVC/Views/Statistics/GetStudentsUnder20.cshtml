@@ -1,0 +1,40 @@
+﻿@model List<AppUser>
+
+@{
+    ViewData["Title"] = "Task1";
+}
+
+<p class="text-center">All students under 20 years old</p>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p class="text-center">No data</p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>BirthDate (mm/dd/yyyy)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.Email</td>
+                            <td>@item.BirthDate.ToString("d")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

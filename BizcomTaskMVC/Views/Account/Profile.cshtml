@@ -1,0 +1,29 @@
+﻿@using BizcomTaskMVC.Statics
+@using System.Security.Claims
+@model BizcomTaskMVC.Entities.AppUser
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4 class="text-center">Profile</h4>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <p>First name: @Model.FirstName</p>
+            <p>Last name: @Model.LastName</p>
+            <p>Phone number: @Model.PhoneNumber</p>
+            <p>Email: @Model.Email</p>
+            <p>BirthDate (dd/mm/yyyy): @Model.BirthDate.Date.ToString("d")</p>
+            <p>Role: @User.FindFirstValue(ClaimTypes.Role)</p>
+            @if (User.IsInRole(UserRoles.Student))
+            {
+                <p>Student registration number: @Model.StudentRegNumber</p>
+            }
+        </div>
+    </div>
+</div>

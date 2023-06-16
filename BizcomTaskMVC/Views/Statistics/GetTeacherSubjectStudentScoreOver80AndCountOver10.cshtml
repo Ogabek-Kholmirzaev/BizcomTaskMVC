@@ -1,0 +1,30 @@
+﻿@model AppUserSubject
+
+@{
+    ViewData["Title"] = "Task7";
+}
+
+<p class="text-center">
+    The subject taught by the selected teacher and for which there are 10 students with a score above 80
+</p>
+
+@if (Model == null)
+{
+    <p class="text-center">No data</p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="text-center">Teacher</p>
+            <p>First name: @Model.AppUser?.FirstName</p>
+            <p>Last name: @Model.AppUser?.LastName</p>
+            <p>Email: @Model.AppUser?.Email</p>
+            <p>BirthDate: @Model.AppUser?.BirthDate.ToString("d")</p>
+
+            <p class="text-center">Subject</p>
+            <p>Name: @Model.Subject?.Name</p>
+            <p>Admin: @Model.IsAdmin</p>
+        </div>
+    </div>
+}

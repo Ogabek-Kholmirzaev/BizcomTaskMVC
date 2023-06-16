@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Subjects\Create.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Statistics\GetStudentsBirthdayBetween12Aug18Sep.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Statistics\GetStudentsFilterByPhrase.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Statistics\GetStudentsUnder20.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Statistics\GetSubjectHighestAverageScore.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Subjects\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Subjects\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Subjects\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Subjects\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Subjects\Join.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Subjects\Mark.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Subjects\Join.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Subjects\Delete.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Subjects\Details.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Subjects\Mark.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Statistics\GetStudentsUnder20.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Statistics\GetStudentsBirthdayBetween12Aug18Sep.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Statistics\GetStudentsFilterByPhrase.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Statistics\GetSubjectHighestAverageScore.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Subjects\Edit.cshtml" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,51 @@
+﻿@model AppUserSubject
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4 class="text-center">Mark Student Grade</h4>
+        </p>
+
+        <div class="row">
+            <p>Subject name: @Model.Subject?.Name</p>
+            <p>Student first name: @Model.AppUser?.FirstName</p>
+            <p>Student last name: @Model.AppUser?.LastName</p>
+            <div class="col-md-8 offset-2">
+                <form asp-action="Mark">
+                    <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                    
+                    <input asp-for="Id" hidden />
+                    <input asp-for="IsTeacher" hidden />
+                    <input asp-for="IsAdmin" hidden />
+                    <input asp-for="AppUserId" hidden />
+                    <input asp-for="SubjectId" hidden />
+
+                    <div class="form-group">
+                        <label asp-for="Grade" class="control-label"></label>
+                        <input min="0" max="100" asp-for="Grade" class="form-control" placeholder="0 ... 100"/>
+                        <span asp-validation-for="Grade" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input class="btn btn-success float-right" type="submit" value="Mark"/>
+                        <a class="btn btn-secondary"
+                           asp-controller="Subjects" asp-action="Details" asp-route-subjectId="@Model.SubjectId">
+                            Back to Subject
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,106 @@
+﻿@using BizcomTaskMVC.Services
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Collections
+@inject UserService UserService
+
+@{
+    ViewData["Title"] = "Statistics";
+
+    IEnumerable<SelectListItem> studentsList = (await UserService.GetAllStudentsAsync())
+        .Select(student => new SelectListItem()
+        {
+            Text = student.FirstName + " " + student.LastName,
+            Value = student.Id.ToString()
+        });
+
+    IEnumerable<SelectListItem> teacherList = (await UserService.GetAllTeachersAsync())
+        .Select(teacher => new SelectListItem()
+        {
+            Text = teacher.FirstName + " " + teacher.LastName,
+            Value = teacher.Id.ToString()
+        });
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4 class="text-center">Statistics</h4>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <a class="btn btn-info mb-1" asp-action="GetStudentsUnder20">
+                All students under 20 years old
+            </a> <br/>
+
+            <a class="btn btn-info mb-1" asp-action="GetStudentsBirthdayBetween12Aug18Sep">
+                All students who were born between August 12 and September 18
+            </a> <br/>
+
+            <a class="btn btn-info mb-1" asp-action="GetTeachersOver55">
+                All teachers over 55 years old
+            </a> <br/>
+
+            <a class="btn btn-info mb-1" asp-action="GetBeelineUsers">
+                All students and teachers using the Beeline mobile number (code 90 or 91)
+            </a> <br/>
+            
+            <hr/>
+
+            <form class="form-inline my-2 my-lg-0 mb-1" asp-controller="Statistics" asp-action="GetStudentsFilterByPhrase">
+                <p class="text-center">All students whose first or last name contains the entered phrase</p>
+                <div class="input-group">
+                    <input name="phrase" class="form-control" type="text" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-info" type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            
+            <hr/>
+
+            <form class="form-inline my-2 my-lg-0 mb-1" asp-controller="Statistics" asp-action="GetUserSubjectMaxScore">
+                <p class="text-center">Subject in which the selected student scored the highest score</p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select name="userId" asp-items="studentsList" class="form-select"></select>
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <hr/>
+            
+            <form class="form-inline my-2 my-lg-0 mb-1" 
+                  asp-controller="Statistics" asp-action="GetTeacherSubjectStudentScoreOver80AndCountOver10">
+                <p class="text-center">
+                    The subject taught by the selected teacher and for which there are 10 students with a score above 80
+                </p>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select name="teacherId" asp-items="teacherList" class="form-select"></select>
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <hr/>
+            
+            <a class="btn btn-info mb-1" asp-action="GetTeachersByStudentsHighScoreOver97">
+                Teachers who teach subjects in which the highest score of students is more than 97
+            </a> <br />
+            
+            <a class="btn btn-info mb-1" asp-action="GetSubjectHighestAverageScore">
+                The subject for which the average student grade is the highest
+            </a>
+        </div>
+    </div>
+</div>

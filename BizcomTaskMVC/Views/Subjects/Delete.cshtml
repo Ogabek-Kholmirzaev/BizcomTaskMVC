@@ -1,0 +1,29 @@
+﻿@model Subject
+
+@{
+    ViewData["Title"] = "Delete Subject";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4 class="text-center">Delete Subject</h4>
+        </p>
+        <p>
+            Subject Name: @Model.Name
+        </p>
+        <p>
+            Subject Key: @Model.Key
+        </p>
+
+        <div class="form-group">
+            <form asp-action="Delete" asp-route-subjectId="@Model.Id">
+                <input asp-for="Id" hidden/>
+                <input asp-for="Name" hidden/>
+                <input asp-for="Key" hidden/>
+                <input type="submit" value="Confirm" class="btn btn-danger float-right"/>
+            </form>
+            <a class="btn btn-secondary mt-3" asp-action="Index">Back to Subjects</a>
+        </div>
+    </div>
+</div>
